@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<package name="default" extends="struts-default">
+		<action name="login" class="org.action.LoginAction">
+			<result name="success">/main.jsp</result>
+			<result name="error">/login.jsp</result>
+		</action>
+		<action name="submit" class="org.action.FileAction">
+			<result name="success">/upload.jsp</result>
+		</action>
+		<action name="upload1" class="org.action.FileAction"
+			method="upload1">
+			<result name="success">/upload.jsp</result>
+		</action>
+		<action name="upload2" class="org.action.FileAction"
+			method="upload2">
+			<result name="success">/upload.jsp</result>
+		</action>
+		<action name="newFold" class="org.action.FileAction"
+			method="newFold">
+			<result name="success">/newFold.jsp</result>
+		</action>
+		<action name="enterFold" class="org.action.FileAction"
+			method="enterFold">
+			<result name="success">/detailFold.jsp</result>
+		</action>
+		<action name="enterFold1" class="org.action.FileAction"
+			method="enterFold1">
+			<result name="success">/detailFold1.jsp</result>
+		</action>
+		<action name="saveFold" class="org.action.FileAction"
+			method="saveFold">
+			<result name="success">/caiwuFile.jsp</result>
+		</action>
+		<action name="upload" class="org.action.FileAction"
+			method="upload">
+			<result name="success">/myFile.jsp</result>
+		</action>
+		<action name="search" class="org.action.FileAction"
+			method="search">
+			<result name="success">/search_result.jsp</result>
+		</action>
+		<action name="myFile" class="org.action.FileAction"
+			method="myFile">
+			<result name="success">/myFile.jsp</result>
+		</action>
+		<action name="changeInfo" class="org.action.FileAction"
+			method="changeInfo">
+			<result name="success">/changeInfo.jsp</result>
+		</action>
+		<action name="updateFile" class="org.action.FileAction"
+			method="updateFile">
+			<result name="success">/myFile.jsp</result>
+		</action>
+		<action name="allFile" class="org.action.FileAction"
+			method="allFile">
+			<result name="success">/allFile.jsp</result>
+		</action>
+		<action name="caiwu" class="org.action.FileAction"
+			method="caiwu">
+			<result name="success">/caiwuFile.jsp</result>
+		</action>
+		<action name="jiaowu" class="org.action.FileAction"
+			method="jiaowu">
+			<result name="success">/jiaowuFile.jsp</result>
+		</action>
+		<action name="dangwu" class="org.action.FileAction"
+			method="dangwu">
+			<result name="success">/dangwuFile.jsp</result>
+		</action>
+		<action name="zichan" class="org.action.FileAction"
+			method="zichan">
+			<result name="success">/zichanFile.jsp</result>
+		</action>
+		<action name="gonghui" class="org.action.FileAction"
+			method="gonghui">
+			<result name="success">/gonghuiFile.jsp</result>
+		</action>
+		<action name="xuesheng" class="org.action.FileAction"
+			method="xuesheng">
+			<result name="success">/xueshengFile.jsp</result>
+		</action>
+		<action name="jiaozhigong" class="org.action.FileAction"
+			method="jiaozhigong">
+			<result name="success">/jiaozhigongFile.jsp</result>
+		</action>
+		<action name="delete" class="org.action.FileAction"
+			method="delete">
+			<result name="success">/myFile.jsp</result>
+		</action>
+		<action name="changeFolder" class="org.action.FileAction"
+			method="changeFolder">
+			<result name="success">/changeFolder.jsp</result>
+		</action>
+		<action name="updateFolder" class="org.action.FileAction"
+			method="updateFolder">
+			<result name="success">/myFile.jsp</result>
+		</action>
+		<action name="deleteFolder" class="org.action.FileAction"
+			method="deleteFolder">
+			<result name="success">/myFile.jsp</result>
+		</action>
+		<action name="download" class="org.action.FileAction"
+			method="download">
+			<!-- 指定被下载资源的位置 -->
+			<!-- <param name="inputPath">\image\</param>-->
+			<result name="success" type="stream">
+				<param name="contentType">
+					application/octet-stream
+				</param>
+				<param name="inputName">targetFile</param>
+				<param name="contentDisposition">
+					attachment;filename="${filename}"
+				</param>
+				 
+				<param name="bufferSize">4096</param>
+			</result>
+		</action>
+		<action name="leader" class="org.action.FileAction"
+			method="leader">
+			<result name="success">/leader.jsp</result>
+		</action>
+		<action name="logOut" class="org.action.LoginAction"
+			method="logOut">
+			<result name="success">/login.jsp</result>
+		</action>
+		<action name="userManage" class="org.action.PeopleAction"
+			method="disUser">
+			<result name="success">/menu.jsp</result>
+		</action>
+		<action name="addUser" class="org.action.PeopleAction">
+			<result name="success">/addUser.jsp</result>
+		</action>
+		<action name="saveAdd" class="org.action.PeopleAction"
+			method="saveAdd">
+			<result name="success">/menu.jsp</result>
+			<result name="input">/addUser.jsp</result>
+		</action>
+		<action name="check" class="org.action.PeopleAction"
+			method="check">
+			<result name="success">/checkInfo.jsp</result>
+		</action>
+		<action name="edit" class="org.action.PeopleAction"
+			method="edit">
+			<result name="success">/editInfo.jsp</result>
+		</action>
+		<action name="saveEdit" class="org.action.PeopleAction"
+			method="saveEdit">
+			<result name="success">/menu.jsp</result>
+			<result name="input">/editInfo.jsp</result>
+		</action>
+		<action name="savePersonalEdit" class="org.action.PeopleAction"
+			method="savePersonalEdit">
+			<result name="success">/personalCheck.jsp</result>
+			<result name="input">/editInfo.jsp</result>
+		</action>
+		<action name="deleteUser" class="org.action.PeopleAction"
+			method="delete">
+			<result name="success">/menu.jsp</result>
+		</action>
+		<action name="personalCheck" class="org.action.PeopleAction"
+			method="personalCheck">
+			<result name="success">/personalCheck.jsp</result>
+		</action>
+		<action name="personalEdit" class="org.action.PeopleAction"
+			method="personalEdit">
+			<result name="success">/personalEdit.jsp</result>
+		</action>
+		<action name="searchUser" class="org.action.PeopleAction"
+			method="searchUser">
+			<result name="success">/searchUserResult.jsp</result>
+		</action>
+		<action name="disFeedback" class="org.action.EmailAction"
+			method="disFeedback">
+			<result name="success">/email2.jsp</result>
+		</action>
+		<action name="feedback" class="org.action.EmailAction"
+			method="feedback">
+			<result name="success">/email2.jsp</result>
+			<result name="error">/email2.jsp</result>
+		</action>
+		<action name="findPassword" class="org.action.LoginAction"
+			method="findPassword">
+			<result name="success">/findPassword.jsp</result>
+			<result name="error">/findPassword.jsp</result>
+		</action>
+		<action name="findPassword1" class="org.action.LoginAction"
+			method="findPassword1">
+			<result name="success">/findPassword.jsp</result>
+		</action>
+		<action name="viewFile" class="org.action.FileAction"
+			method="viewFile">
+		</action>
+	</package>
+</struts>

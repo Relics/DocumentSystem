@@ -1,0 +1,111 @@
+package org.action;
+
+import java.util.List;
+import java.util.Map;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.sql.Date;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
+import org.dao.FileDao;
+import org.dao.PeopleDao;
+import org.dao.impl.FileDaoImp;
+import org.dao.impl.PeopleDaoImp;
+import org.model.File1;
+import org.model.People;
+import org.tool.Pager;
+
+import com.opensymphony.xwork2.ActionContext;
+import com.opensymphony.xwork2.ActionSupport;
+
+public class PeopleAction extends ActionSupport{
+	private People people = new People();
+	private String uploadFileName;
+	private List<File> upload;
+	
+	private int pageSize = 8;
+	private int pageNow = 1;
+	
+	public People getPeople() {
+		return this.people;
+	}
+
+	public void setPeople(People people) {
+		this.people = people;
+	}	
+	
+	public String getUploadFileName() {
+		return this.uploadFileName;
+	}
+
+	public void setUploadFileName(String uploadFileName) {
+		this.uploadFileName = uploadFileName;
+	}	
+	public List<File> getUpload() {
+		return upload;
+	}
+
+	public void setUpload(List<File> upload) {
+		this.upload = upload;
+	}
+
+	public int getPageSize() {
+		return this.pageSize;
+	}
+
+	public void setPageSize(int pageSize) {
+		this.pageSize = pageSize;
+	}
+
+	public int getPageNow() {
+		return this.pageNow;
+	}
+
+	public void setPageNow(int pageNow) {
+		this.pageNow = pageNow;
+	}
+	
+	public String saveAdd() throws Exception {
+		PeopleDao peopleDao = new PeopleDaoImp();
+	
+		if(upload != null){
+			DateFormat format2 = new SimpleDateFormat("yyyyMMddHHmmss");
+			String reTime = format2.format(new Date(System.currentTimeMillis()));
+			InputStream is = new FileInputStream(upload.get(0));
+			OutputStream os = new FileOutputStream("e:\\upload\\userPhoto\\" + reTime
+					+ uploadFileName);
+			byte buffer[] = new byte[1024];
+			int count = 0;
+			while ((count = is.read(buffer)) > 0) {
+				os.write(buffer, 0, count);
+			}
+			os.close();
+			is.close();
+			
+			people.setPhoto("e:\\upload\\userPhoto\\" + reTime
+					+ uploadFileName);
+		}
+		peopleDao.save(people);
+		
+		return SUCCESS;
+	}
+	
+	public String disUser() throws Exception {
+		PeopleDao peopleDao = new PeopleDaoImp();
+		Map request = (Map) ActionContext.getContext().get("request");
+		
+		List<People> allUser;
+		Pager page;
+		allUser = peopleDao.getAbsoluteAll(pageNow, pageSize);
+		page = new Pager(getPageNow(), peopleDao.findSize());
+
+		// ±£´æ
+		request.put("allUser", allUser);
+		request.put("page", page);
+		return SUCCESS;
+	}
+}

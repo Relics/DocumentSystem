@@ -1,0 +1,83 @@
+@charset "utf-8";
+body {
+ background:#fff;
+ font-family:Tahoma, Geneva, sans-serif;
+ font-size:16px;
+}
+.inputBox {
+	background:transparent;
+	border:solid 2px #FFF;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	-moz-box-shadow:0px 2px 2px rgba(0, 0, 0, 0.2), inset 0px 2px 4px rgba(0, 0, 0, 0.15);
+	-webkit-box-shadow:0px 2px 2px rgba(0, 0, 0, 0.2), inset 0px 2px 4px rgba(0, 0, 0, 0.15);
+	box-shadow:0px 2px 2px rgba(0, 0, 0, 0.2), inset 0px 2px 4px rgba(0, 0, 0, 0.15);
+	/*改变两个组件之间的间距*/
+	margin:5px auto 5px auto;
+	/*改变组件内侧的间距*/
+	padding:10px;
+	width:1150px;
+}
+.inputBox label {
+	font-weight:bold;
+	display:inline-block;
+	text-shadow:1px 1px 1px #F3F4F6;
+}
+.inputBox input {
+	background:transparent;
+	border:none;
+	color:#35455F;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:16px;
+	outline:none;
+	padding:1px;
+	width:1000px;
+}
+.inputBox textarea {
+	background:transparent;
+	border:solid 1px #65728A;
+	color:#35455F;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:16px;
+	outline:none;
+	padding:10px;
+	margin:15px auto 5px auto;
+	width:1150px;
+	height:290px;
+}
+button {
+	color:#FFF;
+	cursor:pointer;
+	background:#3A5FCD;
+	border:solid 2px #3A5FCD;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	-moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2), inset 0px -2px 6px rgba(255, 255, 255, 0.15);
+	-webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2), inset 0px -2px 6px rgba(255, 255, 255, 0.15);
+	box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2), inset 0px -2px 6px rgba(255, 255, 255, 0.15);
+	display:block;
+	font-family:Tahoma, Geneva, sans-serif;
+	font-size:16px;
+	font-weight:bold;
+	margin:5px auto 0px auto;
+	padding:8px;
+	width:300px;
+}
+button:hover, button:active {
+	background:#FF6A6A;
+	border:solid 2px #FF6A6A;
+	-moz-box-shadow:0px 2px 4px rgba(0, 0, 0, 0.4), inset 0px -2px 6px rgba(255, 255, 255, 0.15);
+	-webkit-box-shadow:0px 2px 4px rgba(0, 0, 0, 0.4), inset 0px -2px 6px rgba(255, 255, 255, 0.15);
+	box-shadow:0px 2px 4px rgba(0, 0, 0, 0.4), inset 0px -2px 6px rgba(255, 255, 255, 0.15);
+}
+button:active {
+	top:1px;
+}
+/*
+#center {
+	margin-right: auto;
+	margin-left:auto;
+}
+*/
